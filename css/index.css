@@ -51,6 +51,7 @@ body {
     top: 40%; /*in top and left here the 50 and 40% refers to the width and height of the parent element which is the header element*/
     left: 50%;
     transform: translate(-50%, -50%); /*here the -50% is in reference to the height and width (or on x and epsilon (y) axis respectively )of the text box element*/
+    text-align: center;
 }
 
 .heading-primary {
@@ -58,6 +59,7 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /*it determines if the back oart of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -110,6 +112,31 @@ body {
 
     100% {
         opacity: 1;
-        transform: translate(0);
+        transform: translate(0);        
     }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s; /*we use 'all' because we would like the transition property to work on all the properties and this is the shorthand version of the transition property*/
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: white;
+    color: #777;
 }
