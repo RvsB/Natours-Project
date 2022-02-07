@@ -45,17 +45,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*these pairs are  x and y coordinates and the coordinates  are defined from top-left to bottom-left in a clockwise direction. Also we took vh in one of the coordinates so that the height can change dynamically when we resize the window*/
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem; /* the width gets adjusted automatically and we can do vice versa too*/
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%; /*in top and left here the 50 and 40% refers to the width and height of the parent element which is the header element*/
     left: 50%;
@@ -71,7 +71,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block; /*since span elements are inline-elements we change the display to block so that both the texts get displayed in different lines*/
     font-size: 6rem;
     font-weight: 400;
@@ -84,7 +84,7 @@ body {
     animation-iteration-count: 3; defines the number of times the animation will happen */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -159,7 +159,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: white;
     color: #777;
 }
@@ -177,7 +177,7 @@ body {
     transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: white;
 }
 
@@ -186,7 +186,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards; /*this sets the styles of the element at the '0%' before the animation starts to the element */
 }
