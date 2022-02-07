@@ -7,23 +7,32 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit; /*the universal selector inherits this property form the body element*/
+}
+
+html {
+    font-size: 62.5%; /* we chose it to be 10 px so that it reduces our calculations which wouldnt be the case if it were 16 px (now 1 rem == 10px) but we have changed it to percentage because we want our page to be able to follow the browser default font or have it as the root font size so that the user can change it to zoom in and out of the page*/
 }
 
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+
+    box-sizing: border-box; /*we defined this property here so that the universal selector can inherit it from this element and so that we can make use of inheritance*/
 }
 
 .header {
-    height: 95vh;
+    height: 95vh; /*here the width is auto even if we dont define it*/
+    /* width: auto; */
     background-image: linear-gradient(
         to right bottom,
         rgba(128, 214, 113, 0.801),
@@ -38,12 +47,12 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px; /* the width gets adjusted automatically and we can do vice versa too*/
+    height: 3.5rem; /* the width gets adjusted automatically and we can do vice versa too*/
 }
 
 .text-box {
@@ -59,14 +68,14 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /*it determines if the back oart of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     display: block; /*since span elements are inline-elements we change the display to block so that both the texts get displayed in different lines*/
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -77,9 +86,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation: moveInRight 1s ease-out;
 }
@@ -87,11 +96,11 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -103,11 +112,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -119,7 +128,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     100% {
@@ -132,21 +141,22 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all 0.2s; /*we use 'all' because we would like the transition property to work on all the properties and this is the shorthand version of the transition property*/
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -159,7 +169,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -178,5 +188,5 @@ body {
 
 .btn-animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards; /*this sets the styles of the element at the '0%' before the animation starts */
+    animation-fill-mode: backwards; /*this sets the styles of the element at the '0%' before the animation starts to the element */
 }
