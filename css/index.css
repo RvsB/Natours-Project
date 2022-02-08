@@ -1,192 +1,153 @@
-/*
-
-COLORS:
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit; /*the universal selector inherits this property form the body element*/
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*the universal selector inherits this property form the body element*/ }
 
 html {
-    font-size: 62.5%; /* we chose it to be 10 px so that it reduces our calculations which wouldnt be the case if it were 16 px (now 1 rem == 10px) but we have changed it to percentage because we want our page to be able to follow the browser default font or have it as the root font size so that the user can change it to zoom in and out of the page*/
-}
+  font-size: 62.5%;
+  /* we chose it to be 10 px so that it reduces our calculations which wouldnt be the case if it were 16 px (now 1 rem == 10px) but we have changed it to percentage because we want our page to be able to follow the browser default font or have it as the root font size so that the user can change it to zoom in and out of the page*/ }
 
 body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;
-
-    box-sizing: border-box; /*we defined this property here so that the universal selector can inherit it from this element and so that we can make use of inheritance*/
-}
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+  /*we defined this property here so that the universal selector can inherit it from this element and so that we can make use of inheritance*/ }
 
 .header {
-    height: 95vh; /*here the width is auto even if we dont define it*/
-    /* width: auto; */
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(128, 214, 113, 0.801),
-        rgba(40, 180, 133, 0.801)),
-    url(../images/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
-
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*these pairs are  x and y coordinates and the coordinates  are defined from top-left to bottom-left in a clockwise direction. Also we took vh in one of the coordinates so that the height can change dynamically when we resize the window*/
-}
+  height: 95vh;
+  /*here the width is auto even if we dont define it*/
+  /* width: auto; */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../images/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*these pairs are  x and y coordinates and the coordinates  are defined from top-left to bottom-left in a clockwise direction. Also we took vh in one of the coordinates so that the height can change dynamically when we resize the window*/ }
 
 .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+  position: absolute;
+  top: 4rem;
+  left: 4rem; }
 
 .header__logo {
-    height: 3.5rem; /* the width gets adjusted automatically and we can do vice versa too*/
-}
+  height: 3.5rem;
+  /* the width gets adjusted automatically and we can do vice versa too*/ }
 
 .header__text-box {
-    position: absolute;
-    top: 40%; /*in top and left here the 50 and 40% refers to the width and height of the parent element which is the header element*/
-    left: 50%;
-    transform: translate(-50%, -50%); /*here the -50% is in reference to the height and width (or on x and epsilon (y) axis respectively )of the text box element*/
-    text-align: center;
-}
+  position: absolute;
+  top: 40%;
+  /*in top and left here the 50 and 40% refers to the width and height of the parent element which is the header element*/
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*here the -50% is in reference to the height and width (or on x and epsilon (y) axis respectively )of the text box element*/
+  text-align: center; }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-
-    backface-visibility: hidden; /*it determines if the back oart of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
-    margin-bottom: 6rem;
-}
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*it determines if the back oart of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
+  margin-bottom: 6rem; }
 
 .heading-primary--main {
-    display: block; /*since span elements are inline-elements we change the display to block so that both the texts get displayed in different lines*/
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out; /*defines how a animation should progress over the duration of each cycle*/
-    /* animation-delay: 3s; delay before the animation starts
-    animation-iteration-count: 3; defines the number of times the animation will happen */
-}
+  display: block;
+  /*since span elements are inline-elements we change the display to block so that both the texts get displayed in different lines*/
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /*defines how a animation should progress over the duration of each cycle*/
+  /* animation-delay: 3s; delay before the animation starts
+    animation-iteration-count: 3; defines the number of times the animation will happen */ }
 
 .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-
-    animation: moveInRight 1s ease-out;
-}
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    80% {
-        transform: translateX(1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-
-    80% {
-        transform: translateX(-1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);        
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);        
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
 
 .btn:link,
 .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all 0.2s; /*we use 'all' because we would like the transition property to work on all the properties and this is the shorthand version of the transition property*/
-    position: relative;
-    font-size: 1.6rem;
-}
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  /*we use 'all' because we would like the transition property to work on all the properties and this is the shorthand version of the transition property*/
+  position: relative;
+  font-size: 1.6rem; }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .btn--white {
-    background-color: white;
-    color: #777;
-}
+  background-color: white;
+  color: #777; }
 
 .btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-}
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s; }
 
 .btn--white::after {
-    background-color: white;
-}
+  background-color: white; }
 
 .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; }
 
 .btn--animated {
-    animation: moveInBottom 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards; /*this sets the styles of the element at the '0%' before the animation starts to the element */
-}
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  /*this sets the styles of the element at the '0%' before the animation starts to the element */ }
