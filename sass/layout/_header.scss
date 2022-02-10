@@ -1,0 +1,33 @@
+.header {
+    height: 95vh; /*here the width is auto even if we dont define it*/
+    /* width: auto; */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.801), /*using a hexadecimal color in rgba only works in sass and wont work anywhere else*/
+        rgba($color-primary-dark, 0.801)),
+    url(../images/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*these pairs are  x and y coordinates and the coordinates  are defined from top-left to bottom-left in a clockwise direction. Also we took vh in one of the coordinates so that the height can change dynamically when we resize the window*/
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    
+    &__logo {
+        height: 3.5rem; /* the width gets adjusted automatically and we can do vice versa too*/
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%; /*in top and left here the 50 and 40% refers to the width and height of the parent element which is the header element*/
+        left: 50%;
+        transform: translate(-50%, -50%); /*here the -50% is in reference to the height and width (or on x and epsilon (y) axis respectively )of the text box element*/
+        text-align: center;
+    }
+
+}

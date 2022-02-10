@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /*the universal selector inherits this property form the body element*/
+}
+
+html {
+    //this defines what 1 rem is.
+    font-size: 62.5%; /* we chose it to be 10 px so that it reduces our calculations which wouldnt be the case if it were 16 px (now 1 rem == 10px) but we have changed it to percentage because we want our page to be able to follow the browser default font or have it as the root font size so that the user can change it to zoom in and out of the page*/
+}
+
+body {
+    box-sizing: border-box; /*we defined this property here so that the universal selector can inherit it from this element and so that we can make use of inheritance*/
+}
