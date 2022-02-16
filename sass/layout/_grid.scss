@@ -1,6 +1,6 @@
 .row {
     max-width: $grid-width;
-    background-color: #eee;
+    // background-color: #eee;
     margin: 0 auto;
 
     &:not(:last-child) { //the :not pseuso class selects every element which is not the last child
@@ -10,7 +10,7 @@
     @include clearfix;
 
     [class^= "col-"] { //"this is attribute selector" --- '^' operator selects all the elements that start with "col-" we can also select all the elements that end with col using '$' and we can also select all the elements that contian col- bu using '*'
-        background-color: orangered;
+        // background-color: orangered;
         float: left;
 
         &:not(:last-child) {
