@@ -3,3 +3,20 @@
     padding: 25rem 0;
     margin-top: -20vh;
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.801), /*using a hexadecimal color in rgba only works in sass and wont work anywhere else*/
+        rgba($color-primary-dark, 0.801)),
+    url(../../images/nat-4.jpg);
+    background-size: cover;
+    margin-top: -10rem;
+
+    transform: skewY(-7deg);
+
+    & > * { // this is the direct child selector and selects the immediate direct child which is the row div in this case
+        transform: skewY(7deg);
+    }
+}

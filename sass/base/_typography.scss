@@ -12,7 +12,7 @@ body {
     color: $color-white;
     text-transform: uppercase;
 
-    backface-visibility: hidden; /*it determines if the back oart of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
+    backface-visibility: hidden; /*it determines if the back part of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
     margin-bottom: 6rem;
 
     &--main {
