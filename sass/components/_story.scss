@@ -8,6 +8,9 @@
     padding-left: 9rem;
     font-size: $default-font-size;
     transform: skewX(-12deg);
+    position: relative;
+
+
     
     // & > * {
     //     transform: skewX(12deg); //this selects the direct children (story__shape and shory__text), but doest work on story__shape because it already has a transform going on and it takes precedence over this transform and in css only one transform works at a time, so we will declare it manually in both the classes
@@ -24,10 +27,36 @@
 
     &__img {
         height: 100%;
-        
+        transform: translateX(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
     }
 
     &__text {
         transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden; //to fix any shakiness in animation
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%); //value of brightness above 100% makes it brighter and less than it makes it darker
     }
 }
