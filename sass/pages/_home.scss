@@ -29,5 +29,6 @@
 
 .section-stories {
     padding: 15rem 0;
-    background-color: $color-grey-light-1;
+    // background-color: $color-grey-light-1; //removed it because of the video was getting behind this so to make it transpaerent removed it
+    position: relative;
 }
