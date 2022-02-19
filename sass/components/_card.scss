@@ -28,6 +28,14 @@
             &-1 {
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
             }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
         }
     }
 
@@ -41,12 +49,14 @@
     }
 
     //FRONT SIDE STYLING
-    &__picture {
+    &__picture { //in here we use 'background-image' property and not 'image' property, 'because background-blend-mode' peoperty doesnt work on normal images.
         background-size: cover; //specifying these properties here coz we want them to happen for all the images
         height: 23rem;
         background-blend-mode: screen; //using this property is not similar to using gradient and setting its opacity to low in background image
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         //-webkit-clip-path
+        border-top-left-radius: 3px; //we specified the border radius again here because when we use the clip-path property on the image the overflow set to hidden no longer works on the image overflowing, so we set it manually again
+        border-top-right-radius: 3px;
 
         &--1 {
             background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
@@ -54,11 +64,13 @@
         }
 
         &--2 {
-
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+            url(../images/nat-6.jpg);
         }
 
         &--3 {
-
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+            url(../images/nat-7.jpg);
         }
     }
 
@@ -85,6 +97,18 @@
             rgba($color-secondary-dark, .85));
         }
 
+        &--2 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, .85),
+            rgba($color-primary-dark, .85));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-tertiary-light, .85),
+            rgba($color-tertiary-dark, .85));
+        }
+
     }
 
     &__details {
@@ -105,6 +129,31 @@
                 }
             }
         }
+    }
 
+    //BACK SIDE STYLING
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
