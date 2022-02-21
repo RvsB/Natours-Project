@@ -1,5 +1,5 @@
 .btn{
-
+    &, //added this selsctor here because when we are dealing with button elements they dont have a :link or :visited states as they are  not a link so we need to add '&' here to treat it as button element only
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -10,6 +10,10 @@
         transition: all 0.2s; /*we use 'all' because we would like the transition property to work on all the properties and this is the shorthand version of the transition property*/
         position: relative;
         font-size: $default-font-size;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
     
     &:hover {
@@ -23,7 +27,9 @@
     
     }
     
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
     }
