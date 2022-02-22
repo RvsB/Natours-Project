@@ -8,7 +8,7 @@
     z-index: 9999;
     
     opacity: 0;
-    visibility: hidden;
+    visibility: hidden; //we didnt use display none because while useing that we cannot animate it coz it doesnt have any number values.
     transition: all .3s;
 
 
