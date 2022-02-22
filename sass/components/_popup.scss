@@ -7,6 +7,11 @@
     background-color: rgba($color-black, .8);
     z-index: 9999;
     
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+
     &__content {
         @include center-vertical-horizontal;
 
@@ -17,6 +22,10 @@
         border-radius: 3px;
         display: table;
         overflow: hidden;
+
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0); //we added the translate property here again because one declaration block can have one property defined only a single time and here transform gets declared twice, once in mixin and second time at the end, so to fix that we define the translate again in the transform
+        transition: all .4s .2s;
     }
 
     &__left {
@@ -51,5 +60,36 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto; //its a new property so we need to add prefixes for it to work in all the browsers
         hyphens: auto; //for this auto to work properly we need to specify the language in html at the top
+    }
+
+
+    //OPEN STATES
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link, 
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute; //this here is positioned relative to popup content
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1; //specified line height coz the element was getting larger and was not getting positioned properly so we decreased the line height
+        }
+
+        &:hover {
+            color: $color-primary;
+        }
     }
 }
