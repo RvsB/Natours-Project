@@ -1,3 +1,23 @@
+/*
+0-600px:       Phone
+600-900px:     Tablet Potrait
+900-1200px:    Tablet Landscape
+[1200-1800px]  is where our normal styles apply
+1800px + :     Big desktop
+*/
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER FOR WRITING QUERIES : base + typography > general layout + grid > page layout > components 
+
+1em = 16px and this value will change if the user increases the dafault font size of the browser
+
+**in media queries the ems and rems dont work as intended, they follow the browser default font size and not the one which we set, so if we are following 1rem = 10px here it wont be like that, here 1rem =16px, it doesnt matter what we specify one rem to be it will always follow the browser default
+*/
 *,
 *::after,
 *::before {
@@ -9,6 +29,15 @@
 html {
   font-size: 62.5%;
   /* we chose it to be 10 px so that it reduces our calculations which wouldnt be the case if it were 16 px (now 1 rem == 10px) but we have changed it to percentage because we want our page to be able to follow the browser default font or have it as the root font size so that the user can change it to zoom in and out of the page*/ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;

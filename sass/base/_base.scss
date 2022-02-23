@@ -9,6 +9,19 @@
 html {
     //this defines what 1 rem is.
     font-size: 62.5%; /* we chose it to be 10 px so that it reduces our calculations which wouldnt be the case if it were 16 px (now 1 rem == 10px) but we have changed it to percentage because we want our page to be able to follow the browser default font or have it as the root font size so that the user can change it to zoom in and out of the page*/
+    //1rem = 10px; 10px/16px = 62.5%
+
+    @include respond(tab-land) { //width < 900?
+        font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {    //width < 600?
+        font-size: 50%; //1rem = 8px, 8/16 = 50%
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12px, 12/16 = 75%
+    }
 }
 
 body {
