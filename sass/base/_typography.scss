@@ -4,7 +4,6 @@ body {
     /* font-size: 16px; */
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem;
 }
 
 
@@ -14,6 +13,7 @@ body {
 
     backface-visibility: hidden; /*it determines if the back part of the element is visible or hidden fot the user and is used to fix shakiness during animations*/
     margin-bottom: 6rem;
+
 
     &--main {
         display: block; /*since span elements are inline-elements we change the display to block so that both the texts get displayed in different lines*/
@@ -26,6 +26,12 @@ body {
         animation-timing-function: ease-out; /*defines how a animation should progress over the duration of each cycle*/
         /* animation-delay: 3s; delay before the animation starts
         animation-iteration-count: 3; defines the number of times the animation will happen */
+    
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
+
     }
     
     &--sub {
@@ -35,6 +41,10 @@ body {
         letter-spacing: 1.75rem;
     
         animation: moveInRight 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 
 }
@@ -50,6 +60,14 @@ body {
     color: transparent;
     letter-spacing: .2rem;
     transition: all .2s;
+
+    @include respond(tab-port) {   
+        font-size: 3rem; 
+    }
+
+    @include respond(phone) {   
+        font-size: 2.5rem; 
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);

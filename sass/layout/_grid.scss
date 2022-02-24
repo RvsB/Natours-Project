@@ -5,8 +5,23 @@
 
     &:not(:last-child) { //the :not pseuso class selects every element which is not the last child
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
+
     }
 
+    @include respond(tab-port) {
+        max-width: 50rem;
+        // padding: 0 3rem;
+    }
+
+    @include respond(phone) {
+        padding: 0 3rem;
+    }
+
+    
     @include clearfix;
 
     [class^= "col-"] { //"this is attribute selector" --- '^' operator selects all the elements that start with "col-" we can also select all the elements that end with col using '$' and we can also select all the elements that contian col- bu using '*'
@@ -15,6 +30,15 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 

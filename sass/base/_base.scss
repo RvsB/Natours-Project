@@ -26,4 +26,10 @@ html {
 
 body {
     box-sizing: border-box; /*we defined this property here so that the universal selector can inherit it from this element and so that we can make use of inheritance*/
+    padding: 3rem;
+
+
+    @include respond(tab-port) {    
+        padding: 0;
+    }
 }
