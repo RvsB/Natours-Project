@@ -9,7 +9,15 @@
     font-size: $default-font-size;
     transform: skewX(-12deg);
 
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
 
+    @include respond(phone) {
+        transform: skewX(0);
+    }
     
     // & > * {
     //     transform: skewX(12deg); //this selects the direct children (story__shape and shory__text), but doest work on story__shape because it already has a transform going on and it takes precedence over this transform and in css only one transform works at a time, so we will declare it manually in both the classes
@@ -23,6 +31,11 @@
         clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
+    
     }
 
     &__img {
@@ -34,6 +47,10 @@
 
     &__text {
         transform: skewX(12deg);
+
+        @include respond(phone) {
+            transform: skewX(0);
+        }
     }
 
     &__caption {
