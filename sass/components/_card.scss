@@ -161,7 +161,11 @@
 
 
     //remaking this component for media query
-    @include respond(tab-port) {
+    // @include respond(tab-port) {
+
+    @media only screen and (max-width: 56.25em),
+            only screen and (hover: none) { //the opposite of 'hover: none' is 'hover: hover'
+
         height: auto; //since we positioned the children of this element to absolute the parent (this elemnt collapsed and lost its height) so we specify the height again here too
         border-radius: 3px;
         background-color: $color-white;
